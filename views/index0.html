@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html lang="en">
+	<head>
+		<title>. : : Cloak : : .</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.structure.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css">
+
+
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+	</head>
+	
+	<body>
+		
+		<div id="wrapper">
+			
+			<!-- HEADER -->
+
+			<header>
+				<span id="logo"></span><span id="logo_title">cloak</span>
+
+				<span id="login_navigation"><a href="#">Login</a> | <a href="#">Sign Up</a></span>
+			</header>	
+
+			<!-- ALERTS -->
+			<section id="alert" class="alert alert-info" role="alert">This is a stub alert. Wohoo!!!</section>
+
+			<div id="image_controls" class="col-xs-12 col-sm-12 col-md-5">				
+				<!-- upload file -->
+				<label class="fileContainer">
+				    Click here to upload your image
+				    <input type="file" id="upload_field"/>
+				</label>
+
+
+				<!-- Buttons  -->
+				<button type="button" id="button_reset" class="btn btn-default">
+					<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Reset
+				</button>
+				
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="button_save" data-toggle="dropdown">
+				    <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Save...
+				    	<span class="caret"></span>
+				  	</button>
+				  	
+				  	<ul class="dropdown-menu" role="menu" aria-labelledby="button_save">
+				    	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Save</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Save as new</a></li>
+				  	</ul>
+				</div>
+				
+				<button type="button" id="button_reset" class="btn btn-default">
+					<span class="glyphicon glyphicon-download"></span>&nbsp;Download
+				</button>
+
+				<!-- End of button -->
+
+				<img src="../images/riodejaneiro.png" alt=""/>
+
+			</div>
+			<!-- End of image block -->
+
+
+
+			<!-- Filters -->
+
+			<div id="filter_controls" class="col-xs-12 col-sm-12 col-md-7">
+				<div id="filters" class="col-xs-5 col-sm-5 col-md-5">
+					<h3>Basic</h3>
+					<div>
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+					</div>
+					<h3>My Filters/Favourites</h3>
+					<div>
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+					</div>
+					<h3>Filters</h3>
+					<div>
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+
+						<img src="../images/thumbnail.png" alt="" class="thumbnail"/>
+					</div>	
+				</div>	
+
+				<div id="controls" class="col-xs-7 col-sm-7 col-md-7">
+					<h3>Controls</h3>
+
+					<!-- <div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
+
+					<label>Property 1</label>
+
+					<div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
+
+					<label>Property 2</label>
+
+					<div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
+
+					<label>Property 3</label> -->
+				</div>
+			</div>
+
+			<!-- end of filters -->
+
+			
+			
+		</div>
+
+	</body>
+
+</html>

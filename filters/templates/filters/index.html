@@ -1,0 +1,9 @@
+{% if latest_filter_list %}
+    <ul>
+    {% for filter in latest_filter_list %}
+        <li><a href="/filters/{{ filter.id }}/">{{ filter.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No filters are available.</p>
+{% endif %}
