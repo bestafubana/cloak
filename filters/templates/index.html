@@ -3,19 +3,22 @@
 	<head>
 		<title>. : : Cloak : : .</title>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+		<!-- {% load staticfiles %} -->
+		<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.css" %}"> 
+		<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.css" %}">
+
+		<link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.min.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.structure.min.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.theme.min.css" %}">
 
 
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+		<script type="text/javascript" src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/main.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/filters.js" %}"></script> 
 	</head>
 	
 	<body>
@@ -40,7 +43,7 @@
 				<!-- upload file -->
 				<label class="fileContainer">
 				    Click here to upload your image
-				    <input type="file" id="upload_field"/>
+				    <input type="file" id="upload_field" download="happyimg.png"/>
 				</label>
 
 
@@ -61,13 +64,13 @@
 				  	</ul>
 				</div>
 				
-				<button type="button" id="button_reset" class="btn btn-default">
+				<button type="button" id="button_download" class="btn btn-default">
 					<span class="glyphicon glyphicon-download"></span>&nbsp;Download
 				</button>
 
 				<!-- End of button -->
 				<canvas id="cloak"></canvas>
-				<img src="images/demo2.png" alt="" id="mainImg"/>
+				<img src="{% static "images/demo2.png" %}" alt="" id="mainImg"/>
 
 			</div>
 			<!-- End of image block -->
@@ -77,51 +80,51 @@
 				<div id="filters" class="col-xs-5 col-sm-5 col-md-5">
 					<h3>Basic</h3>
 					<div>
-						<img src="images/thumbnail.png" alt="Hue" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/brightness.png" %}"  id="f_9" alt="Brightness" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/bw.png" %}"  id="f_12" alt="Black and White" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/sepia.png" %}"  id="f_2" alt="Sepia" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/colorbalance.png" %}"  id="f_7" alt="Color Balance" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/posterize.png" %}"  id="f_13" alt="Posterize" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnails/negative.png" %}"  id="f_4" alt="Negative" class="thumbnail"/>
 					</div>
 					<h3>My Filters/Favourites</h3>
 					<div>
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 					</div>
 					<h3>Filters</h3>
 					<div>
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 
-						<img src="images/thumbnail.png" alt="" class="thumbnail"/>
+						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 					</div>	
 				</div>	
 
