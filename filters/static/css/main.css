@@ -58,13 +58,17 @@ header{
 	z-index: 1;
 }
 
-#cloak{
+#cloak,#copy{
 	margin-top:10px;
 	width: 100%;
 	float:left;
 	display: block;
 	position: absolute;
 	z-index: 2;
+}
+
+#copy{
+	z-index: 1;
 }
 
 #filter_controls{
@@ -91,8 +95,19 @@ header{
 }
 
 .slide{
-	width:80% !important;
-	margin: 30px 10% 10px 10%;
+	width:70% !important;
+	margin: 30px 5%;
+	display:inline;
+	padding: 0px;
+	float:left;
+}
+
+#slider span{
+	display:inline-block;
+	float:left;
+	width:10%;
+	margin:30px 0px;
+	paddin:0px;
 }
 
 /* ****** Image Buttons ****** */
@@ -106,6 +121,11 @@ header{
 
 #button_download{
 
+}
+
+#button_apply{
+	float: right;
+    margin: 35px 10px;
 }
 
 /* Hack for the upload field */

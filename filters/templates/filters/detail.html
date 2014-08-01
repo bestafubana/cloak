@@ -3,5 +3,17 @@
 <p>{{filter.description}}</p>
 
 <div id="slider">
-	<input class="slide" type="range" min="{{filter.min}}" max="{{filter.max}}" step="{{filter.change_step}}" value="{{filter.default_value}}" onchange="applyFilter({{filter.id}}, this.value)" />
+	<span>{{filter.min}}</span><input class="slide" type="range" min="{{filter.min}}" max="{{filter.max}}" step="{{filter.change_step}}" id="slide_input" value="{{filter.default_value}}" onchange="applyFilter({{filter.id}}, this.value)" /><span>{{filter.max}}</span>
 </div>
+
+<button id="button_apply" type="button" class="btn btn-default">
+	<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Apply
+</button>
+
+<script>
+	$(document).ready(function(){
+		$('#button_apply').click(function(event) {
+			copyToFinalCanvas();
+		});
+	});
+</script>

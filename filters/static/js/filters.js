@@ -4,6 +4,16 @@ Filters.loadImage = function() {
 	var c = this.getCanvas();
 	var ctx = c.getContext('2d');
 	ctx.drawImage(img,0,0);
+
+	var copy = this.getCopyCanvas();
+	ctx = copy.getContext('2d');
+	ctx.drawImage(img,0,0);
+};
+
+Filters.copyCanvas = function() {
+	var c = this.getCopyCanvas();
+	var ctx = c.getContext('2d');
+	return ctx.getImageData(0,0,c.width,c.height);
 };
 
 Filters.getPixels = function() {
@@ -16,8 +26,12 @@ Filters.getCanvas = function() {
 	return $("#cloak")[0];
 };
 
+Filters.getCopyCanvas = function() {
+	return $("#copy")[0];
+};
+
 Filters.filterImage = function(filter, var_args) {
-	var args = [this.getPixels()];
+	var args = [this.copyCanvas()];
 	for (var i=1; i<arguments.length; i++) {
 		args.push(arguments[i]);
 	}
@@ -126,13 +140,13 @@ Filters.blue = function(pixels, adjustment) {
   return pixels;
 };
 
-Filters.sepia = function(pixels, args) {
+Filters.sepia = function(pixels, factor) {
 	var d = pixels.data;
 
 	for (var i=0; i<d.length; i+=4) {
 		var v = 0.2126*d[i] + 0.7152*d[i+1] + 0.0722*d[i+2];
-		d[i] = v*1.8*0.6;
-		d[i+1] = v*1.8*0.45;
+		d[i] = v*1.8*0.6*factor;
+		d[i+1] = v*1.8*0.45*factor;
 		d[i+2] = v*1.8*0.2;
 	}
 	return pixels;
@@ -157,6 +171,7 @@ Filters.posterize = function(pixels, factor) {
 
 Filters.brightness = function(pixels, adjustment) {
   var d = pixels.data;
+ 	
   for (var i=0; i<d.length; i+=4) {
     d[i] += adjustment;
     d[i+1] += adjustment;
@@ -221,5 +236,11 @@ function runFilter(id, filter, arg1, arg2, arg3) {
 	c.height = idata.height;
 	var ctx = c.getContext('2d');
 	ctx.putImageData(idata, 0, 0);
+}
+
+function copyToFinalCanvas(){
+	var c = Filters.getCopyCanvas();
+	var ctx = c.getContext('2d');
+	ctx.putImageData(Filters.getPixels(), 0, 0);
 }
 
