@@ -12,6 +12,8 @@ $(document).ready(function(){
 
 	$("#button_reset").click(function(event) {
 		Filters.loadImage();
+		filtersUsed = [];
+		lastFilter = [];
 	});
 
 	$('#button_download').click(function(){
@@ -19,9 +21,7 @@ $(document).ready(function(){
 		var rawImageData = canvas.toDataURL("image/png;base64");
         rawImageData = rawImageData.replace("image/png", "image/octet-stream");
         document.location.href = rawImageData;
-	});
-
-	
+	});	
 
 	$('.thumbnail').click(function(event) {
 		var id = $(this).prop('id').replace("f_", "");
@@ -31,14 +31,15 @@ $(document).ready(function(){
 			applyFilter(parseInt(id));
 		});	
 	});
-
-	
-
 });
 
-function applyFilter(id, value){
 
-	// alert("id: " + id + " value: " + value);
+var filtersUsed = [];
+var lastFilter = [];
+var testFilter = [[12, 1.2], [7, 20], [13, 15]];
+
+function applyFilter(id, value){
+	lastFilter[0] = id;
 
 	var filters = [0,0,
 				[Filters.sepia, 1],0,
@@ -51,32 +52,23 @@ function applyFilter(id, value){
 
 	if(value != undefined){
 		runFilter(id, filters[id][0], parseFloat(value));	
+		lastFilter[1] = parseFloat(value);
 	}else{
 		runFilter(id, filters[id][0], filters[id][1]);	
+		lastFilter[1] = filters[id][1];
 	}
+}
 
-	value = parseFloat(value);
+function addFilterStep(){
+	filtersUsed.push(lastFilter);
+	lastFilter = [];
+}
 
-	// switch(id){
-	// 	case 2:
-	// 		runFilter(id, Filters.sepia, value);
-	// 	break;
-	// 	case 4:
-	// 		runFilter(id, Filters.negative, value);
-	// 	break;
-	// 	case 7:
-	// 		runFilter(id, Filters.red, value);
-	// 	break;
-	// 	case 9:
-	// 		runFilter(id, Filters.brightness, value);
-	// 	break;
-	// 	case 12:
-	// 		runFilter(id, Filters.grayscale, value);
-	// 	break;
-	// 	case 13:
-	// 		runFilter(id, Filters.posterize, value);
-	// 	break;
-	// }
+function reuseFilter(){
+	for(i = 0; i < testFilter.length; i++){
+		applyFilter(testFilter[i][0], testFilter[i][1]);
+		copyToFinalCanvas();
+	}
 }
 
 function adjustCanvasSize(){

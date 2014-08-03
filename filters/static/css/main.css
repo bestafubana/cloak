@@ -20,6 +20,36 @@ header{
 	float:left;
 }
 
+input[type=text], input[type=password]{
+	float: right;
+    font-size: 0.8em;
+    height: 25px;
+    margin-right: 5px;
+    width: 100px;
+}
+
+input[type=submit]{
+	float: right;
+    font-size: 0.8em;
+    height: 25px;
+    margin-right: 5px;
+    line-height: 0.8em;
+    background-color: #F22965;
+    border-color: #ED89A5;
+    color:white;
+}
+
+input[type=submit]:hover{
+	color:#F22965;
+	background-color: white;
+}
+
+#login_form{
+	display: inline-block;
+	width:260px;
+	vertical-align: middle;
+}
+
 #wrapper{
 	width: 90%;
 	margin: auto;

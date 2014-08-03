@@ -1,20 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
-	name = models.CharField(max_length=100)
-	email = models.CharField(max_length=60)
-	username = models.CharField(max_length=30)
-	password = models.CharField(max_length=50)
-
-	def __unicode__(self):
-		return self.name +" # "+ self.username+" # "+ self.email
-
 class Filter(models.Model):
 	owner = models.ForeignKey(User)
 	name = models.CharField(max_length=50)
 	img_name = 	models.CharField(max_length=200)
-	
 
 	def __unicode__(self):
 		return self.name

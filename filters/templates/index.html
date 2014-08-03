@@ -26,11 +26,23 @@
 		<div id="wrapper">
 			
 			<!-- HEADER -->
-
 			<header>
 				<span id="logo"></span><span id="logo_title">cloak</span>
 
-				<span id="login_navigation"><a href="#">Login</a> | <a href="#">Sign Up</a></span>
+
+				{% if user.is_authenticated %}
+				    <span id="login_navigation"><a href="#">{{user.username}}</a> | <a href="logout">Logout</a></span>
+				{% else %}
+				    <span id="login_navigation">
+					    <form id="login_form" method="POST" action="login">
+					    	{% csrf_token %}
+							<input class="btn btn-default" type="submit" value="Go!"></input>
+			        		<input type="password" class="form-control" name="password" placeholder="Password">
+			        		<input type="text" class="form-control" name="username" placeholder="Username">	
+						</form>	
+					| <a href="#">Sign Up</a></span>
+				{% endif %}	
+
 			</header>	
 
 			<!-- ALERTS -->
@@ -94,6 +106,7 @@
 
 						<img src=" {% static "images/thumbnails/negative.png" %}"  id="f_4" alt="Negative" class="thumbnail"/>
 					</div>
+					{% if user.is_authenticated %} 
 					<h3>My Filters/Favourites</h3>
 					<div>
 						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
@@ -106,6 +119,7 @@
 
 						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
 					</div>
+					{% endif %}
 					<h3>Filters</h3>
 					<div>
 						<img src=" {% static "images/thumbnail.png" %}" alt="" class="thumbnail"/>
@@ -133,17 +147,7 @@
 				<div id="controls" class="col-xs-7 col-sm-7 col-md-7">
 					<h3>Controls</h3>
 
-					<!-- <div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
-
-					<label>Property 1</label>
-
-					<div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
-
-					<label>Property 2</label>
-
-					<div id="slider"><input class="slide" type="range" min="5" max="200" step="5" value="100" onchange="updateSlider(this.value)" /></div>
-
-					<label>Property 3</label> -->
+					<p>Choose one of the filters on the left, combine them and create the perfect effect.</p>
 				</div>
 			</div>
 
